@@ -1,7 +1,8 @@
 # 関数の宣言
 def origami_height_compare(thickness, goal_height):
 	"""
-	function : 目標の高さと対象の紙の厚さを入力すると目標の高さを超えるために必要な折る回数を返す関数
+	function : 目標の高さ[goal_height]と紙の厚さ[thickness]を入力すると
+			   目標の高さを超えるために必要な折る回数[number_of_folds]を返す関数
 
 	:param thickness: float
 		折りたい紙の厚さ
@@ -9,25 +10,26 @@ def origami_height_compare(thickness, goal_height):
 		目標の高さ
 	height : int (計算用)
 		高さの計算のためのパラメータ
-	:return number_of_folding : int
+	:return number_of_folds : int
 		目標の高さを超えるために必要な最小の折る回数
 	"""
 
 	# 初期値の設定
-	number_of_folding = 0
+	number_of_folds = 0
 	height = thickness
 
 	# 計算
 	while height < goal_height:
-		height = thickness * (2 ** number_of_folding)
-		number_of_folding += 1
+		height = thickness * (2 ** number_of_folds)
+		number_of_folds += 1
 
 	# 返り値の設定
-	return number_of_folding
+	return number_of_folds
 
 
-thickness_of_copy_paper = 0.00008
-height_of_prokishima = 4.0175e+16
+THICKNESS_OF_COPY_PAPER = 0.00008
+DISTANCE_TO_THE_PROKISIMA_KENTAURI = 4.0175e+16
 
 print('プロキシマ・ケンタウリを超えるためには{}回、厚さ{}[m]の紙を折る必要があります'
-	            .format(origami_height_compare(thickness_of_copy_paper, height_of_prokishima), thickness_of_copy_paper))
+         .format(origami_height_compare(THICKNESS_OF_COPY_PAPER, DISTANCE_TO_THE_PROKISIMA_KENTAURI),
+		                                THICKNESS_OF_COPY_PAPER))

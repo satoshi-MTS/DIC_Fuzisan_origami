@@ -27,9 +27,11 @@ def origami_height_compare(thickness, goal_height):
 	return number_of_folds
 
 
+# パラメータの設定
 THICKNESS_OF_COPY_PAPER = 0.00008
 DISTANCE_TO_THE_PROKISIMA_KENTAURI = 4.0175e+16
 
+# 結果の表示
 print('プロキシマ・ケンタウリを超えるためには{}回、厚さ{}[m]の紙を折る必要があります'
          .format(origami_height_compare(THICKNESS_OF_COPY_PAPER, DISTANCE_TO_THE_PROKISIMA_KENTAURI),
 		                                THICKNESS_OF_COPY_PAPER))
